@@ -23,7 +23,7 @@ clustering_model.fit(data)
  
 print("Top terms per cluster:")
 
-sorted_centroids = model.cluster_centers_.argsort()[:, ::-1]
+sorted_centroids = clustering_model.cluster_centers_.argsort()[:, ::-1]
 terms = vectorizer.get_feature_names()
 
 for i in range(true_k):
@@ -38,11 +38,19 @@ print("Predictions of new documents")
  
 new_doc = ["how to install Chrome"]
 Y = vectorizer.transform(new_doc)
-prediction = model.predict(Y)
+prediction = clustering_model.predict(Y)
 print(prediction)
  
 new_doc = ["UCL Final match is played in Madrid this year"]
 Y = vectorizer.transform(new_doc)
-prediction = model.predict(Y)
+prediction = clustering_model.predict(Y)
 print(prediction)
- 
+
+# Top terms per cluster:
+# Cluster 0: apps google funny camera extensions useful chrome driving face facebook
+#
+# Cluster 1: world cup young champions crowned french men qatar fifa played
+#
+# Predictions of new documents
+# [0]
+# [1]
